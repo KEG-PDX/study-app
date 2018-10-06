@@ -18,7 +18,7 @@ export default class Auth extends Component {
             <p>Have you signed up? <Link to="/auth/signup">Sign Up</Link></p>
           )}/>
           <Route path="/auth/signup" render={() => (
-            <p>Already have an account? <Link to="/auth/signin">Sign Up</Link></p>
+            <p>Already have an account? <Link to="/auth/signin">Sign In</Link></p>
           )}/>
           <Redirect to="/auth/signup"/>
         </Switch>
