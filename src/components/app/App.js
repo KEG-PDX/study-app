@@ -10,7 +10,8 @@ export default class App extends Component {
       <Router>
         <main>
           <Switch>
-            <Route path="/" component={Auth}/>
+            <Route exact path="/" component={Auth}/>
+            <Route path="/auth" component={Auth}/>
             <Redirect to="/"/>
           </Switch>
         </main>

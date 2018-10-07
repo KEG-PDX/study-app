@@ -1,24 +1,35 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { Switch, Route, Link, Redirect } from 'react-router-dom';
-
-export default class Auth extends Component {
+import { connect } from 'react-redux';
+import { signin, signup } from './actions';
+import { getUser } from './reducers';
+import Credentials from './Credentials';
+import Error from '../app/Error';
+class Auth extends Component {
   static propTypes = {
     user: PropTypes.object,
-    // signin: PropTypes.func.isRequired,
-    // signup: PropTypes.func.isRequired
+    signin: PropTypes.func.isRequired,
+    signup: PropTypes.func.isRequired
   };
 
   render() {
     return (
       <section>
         <h2>Study App</h2>
+        <Error/>
         <Switch>
           <Route path="/auth/signin" render={() => (
-            <p>Have you signed up? <Link to="/auth/signup">Sign Up</Link></p>
+            <div>
+              <p>New user? <Link to="/auth/signup">Sign Up</Link></p>
+              <Credentials action="Sign In" submit={signin}/>
+            </div>
           )}/>
           <Route path="/auth/signup" render={() => (
-            <p>Already have an account? <Link to="/auth/signin">Sign In</Link></p>
+            <div>
+              <p>Already have an account? <Link to="/auth/signin">Sign In</Link></p>
+              <Credentials action="Sign Up" submit={signup}/>
+            </div>
           )}/>
           <Redirect to="/auth/signup"/>
         </Switch>
@@ -26,3 +37,10 @@ export default class Auth extends Component {
     );
   }
 }
+
+export default connect(
+  state => ({
+    user: getUser(state)
+  }),
+  { signin, signup }
+)(Auth);
