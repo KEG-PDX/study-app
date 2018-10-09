@@ -35,6 +35,11 @@ class Credentials extends Component {
         {(action === 'Sign Up') &&  
         <Fragment>
           <div>
+            <ul>
+              <li>Step 1: Create an account.</li>
+              <li>Step 2: Use Study Up to help you pass your exams, develop super human memorization, or save the world.</li>
+              <li>Simple as that (probably).</li>
+            </ul>
             <FormControl label="Name">
               <input name="name" type="text" value={name} onChange={this.handleChange}></input>
             </FormControl>
