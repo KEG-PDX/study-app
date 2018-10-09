@@ -16,18 +16,18 @@ class Auth extends Component {
   render() {
     return (
       <section>
-        <h2>Study App</h2>
         <Error/>
         <Switch>
           <Route path="/auth/signin" render={() => (
             <div>
-              <p>New user? <Link to="/auth/signup">Sign Up</Link></p>
-              <Credentials action="Sign In" submit={signin}/>
+              <h2>Study Up</h2>
+              <Credentials action="Login" submit={signin}/>
+              <Link to="/auth/signup"><button>Sign Up</button></Link>
             </div>
           )}/>
           <Route path="/auth/signup" render={() => (
             <div>
-              <p>Already have an account? <Link to="/auth/signin">Sign In</Link></p>
+              <p>&lt;&#61;&#61; <Link to="/auth/signin">Login</Link></p>
               <Credentials action="Sign Up" submit={signup}/>
             </div>
           )}/>
