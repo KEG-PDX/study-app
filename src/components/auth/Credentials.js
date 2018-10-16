@@ -23,7 +23,8 @@ class Credentials extends Component {
 
   handleSubmit = e => {
     e.preventDefault();
-    this.props.submit(this.state);
+    this.props.submit(this.state)
+      .catch(() => {});
   };
   
   render() { 
@@ -32,31 +33,25 @@ class Credentials extends Component {
 
     return (
       <form onSubmit={this.handleSubmit}>
-        {(action === 'Sign Up') &&  
+        {action === 'Sign Up' &&  
         <Fragment>
           <div>
             <ul>
               <li>Step 1: Create an account.</li>
               <li>Step 2: Use Study Up to help you pass your exams, develop super human memorization, or save the world.</li>
-              <li>Simple as that (probably).</li>
             </ul>
             <FormControl label="Name">
-              <input name="name" type="text" value={name} onChange={this.handleChange}></input>
+              <input name="name" type="text" value={name} onChange={this.handleChange} required></input>
             </FormControl>
           </div>
         </Fragment>
         }
-        <FormControl>
-          <label className="emailLabel">Email:</label>
+
+        <FormControl label="Email">
+          <input name="email" type="email" value={email} onChange={this.handleChange} required></input>
         </FormControl>
-        <FormControl>
-          <input className="emailForm" name="email" type="email" value={email} onChange={this.handleChange} required></input>
-        </FormControl>
-        <FormControl>
-          <label className="passLabel">Password:</label>
-        </FormControl>
-        <FormControl>
-          <input className="passForm" name="password" type="password" value={password} onChange={this.handleChange} required></input>
+        <FormControl label="Password">
+          <input name="password" type="password" value={password} onChange={this.handleChange} required></input>
         </FormControl>
 
         <FormControl>
