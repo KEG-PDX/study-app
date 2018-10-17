@@ -21,6 +21,10 @@ class Flashcards extends Component {
     user: PropTypes.object.isRequired,
   };
 
+  componentDidMount = () => {
+    this.props.loadUserFlashcards();
+  };
+
   handleAdd = flashcard => {
     const { user } = this.props;
     flashcard.category = flashcard.category.value;
