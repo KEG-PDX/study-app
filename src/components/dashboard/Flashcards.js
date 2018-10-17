@@ -1,7 +1,8 @@
 import React, { Component, Fragment } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { loadUserFlashcards } from './actions';
+import { getUser } from '../auth/reducers';
+import { loadUserFlashcards, addFlashcard } from './actions';
 import { getUserFlashcards } from './reducers';
 
 import FlashcardForm from './FlashcardForm';
@@ -14,12 +15,19 @@ class Flashcards extends Component {
   };
 
   static propTypes = {
-    flashcards: PropTypes.array
+    flashcards: PropTypes.array,
+    loadUserFlashcards: PropTypes.func.isRequired,
+    addFlashcard: PropTypes.func.isRequired,
+    user: PropTypes.object.isRequired,
   };
 
-  handleAdd = goal => {
-    const { addGoal } = this.props;
-    return addGoal(goal)
+  handleAdd = flashcard => {
+    const { user } = this.props;
+    flashcard.category = flashcard.category.value;
+    flashcard.subCategory = flashcard.subCategory.value;
+    flashcard.profileId = user.profile._id;
+    const { addFlashcard } = this.props;
+    return addFlashcard(flashcard)
       .then(() => this.toggleAdd());
   };
 
@@ -54,7 +62,8 @@ class Flashcards extends Component {
 
 export default connect(
   state => ({
-    flashcards: getUserFlashcards(state)
+    flashcards: getUserFlashcards(state),
+    user: getUser(state)
   }),
-  { loadUserFlashcards }
+  { loadUserFlashcards, addFlashcard }
 )(Flashcards);
