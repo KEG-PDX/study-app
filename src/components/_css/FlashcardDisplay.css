@@ -1,0 +1,24 @@
+:local(.flashcardDisplay) {
+  background-color: rgb(238, 238, 238);
+  width: 80vw;
+  margin-left: 5px;
+  margin-top: 10px;
+  min-height: 100px;
+  padding: 3px;
+  
+  .flashcardData {
+    display: flex;
+    flex-flow: column nowrap;
+    align-content: right;
+    width: 90%;
+    height: auto;
+  }
+
+  img {
+    position: absolute;
+    margin-left: 75%;
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+  }
+}

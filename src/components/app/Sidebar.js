@@ -21,55 +21,48 @@ class Sidebar extends Component {
 
     return (
       <header className={styles.sidebar}>
-        <div className="area"></div>
-        <nav className="main-menu">
-          <ul>
-            <li className="has-subnav">
-              <Link to="/me">
-                <i className="fas fa-home fa-2x"></i>
-                <span className="nav-text">
+        <div className="area">
+          <nav className="main-menu">
+            <ul>
+              <li className="has-subnav">
+                <Link to="/me">
+                  <i className="fas fa-book fa-2x"></i>
+                  <span className="nav-text">
                     Dashboard
-                </span>
-              </Link>      
-            </li>
-            {user &&
+                  </span>
+                </Link>      
+              </li>
+              {user &&
             <Fragment>
-              <li>
+              <li className="has-subnav">
                 <Link to="/">
                   <i className="fas fa-search fa-2x"></i>
                   <span className="nav-text">
-                    Search
+                      Search
                   </span>
                 </Link>
               </li>
               <li className="has-subnav">
-                <Link to="/swap">
-                  <i className="fas fa-book fa-2x"></i>
+                <Link to="/">
+                  <i className="fas fa-chart-bar fa-2x"></i>
                   <span className="nav-text">
                     Insights
                   </span>
                 </Link>      
               </li>
-              <li className="has-subnav">
-                <Link to="/map">
-                  <i className="fas fa-map-marker-alt fa-2x"></i>
-                  <span className="nav-text">
-                    Map
-                  </span>
-                </Link>
-              </li>
               <li onClick={this.handleLogout} className="has-subnav">
                 <a>
-                  <i className="fas fa-power-off fa-2x"></i>
+                  <i className="fas fa-sign-out-alt fa-2x"></i>
                   <span className="nav-text">
                     Logout
                   </span>
                 </a>
               </li>
             </Fragment>
-            }
-          </ul>
-        </nav>
+              }
+            </ul>
+          </nav>
+        </div>
       </header>
     );
   }

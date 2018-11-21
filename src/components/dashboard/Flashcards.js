@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import { getUser } from '../auth/reducers';
 import { loadUserFlashcards, addFlashcard } from './actions';
 import { getUserFlashcards } from './reducers';
+import styles from '../_css/Flashcards.css';
 
 import FlashcardForm from './FlashcardForm';
 import FlashcardDisplay from './FlashcardDisplay';
@@ -43,7 +44,7 @@ class Flashcards extends Component {
     const { editing } = this.state;
     const { flashcards } = this.props;
     return (
-      <div>
+      <div className={styles.flashcards}>
         {editing
           ? <FlashcardForm submit={this.handleAdd} onCancel={this.toggleAdd}/>
           : <Fragment>

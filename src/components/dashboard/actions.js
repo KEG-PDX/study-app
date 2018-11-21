@@ -1,5 +1,5 @@
-import { FLASHCARD_LOAD, FLASHCARD_ADD } from './reducers';
-import { getUserFlashcards, postFlashcard } from '../../services/flashcardsApi';
+import { FLASHCARD_LOAD, FLASHCARD_ADD, FLASHCARD_REMOVE } from './reducers';
+import { getUserFlashcards, postFlashcard, putFlashcard } from '../../services/flashcardsApi';
 
 export const loadUserFlashcards = () => {
   return {
@@ -14,3 +14,8 @@ export const addFlashcard = data => {
     payload: postFlashcard(data)
   };
 };
+
+export const removeFlashcard = flashcard => ({
+  type: FLASHCARD_REMOVE,
+  payload: putFlashcard(flashcard)
+});

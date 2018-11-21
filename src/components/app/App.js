@@ -1,4 +1,4 @@
-import React, { Component, Fragment } from 'react';
+import React, { Component } from 'react';
 import { BrowserRouter as Router, Switch, Route, Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
@@ -25,7 +25,7 @@ class App extends Component {
 
     return (
       <Router>
-        <Fragment>
+        <div className={styles.app}>
           <Sidebar/>
           {checkedAuth &&
           <main>
@@ -41,7 +41,7 @@ class App extends Component {
               Study Up
             </footer>
           }
-        </Fragment>
+        </div>
       </Router>
     );
   }

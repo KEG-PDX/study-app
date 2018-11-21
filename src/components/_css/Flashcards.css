@@ -1,0 +1,6 @@
+:local(.flashcards) {
+  display: flex;
+  flex-flow: column nowrap;
+  margin-left: 10px;
+  margin-bottom: 60px;
+}
