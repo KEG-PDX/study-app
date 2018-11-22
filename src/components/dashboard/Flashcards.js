@@ -44,23 +44,23 @@ class Flashcards extends Component {
     const { editing } = this.state;
     const { flashcards } = this.props;
     return (
-      <div className={styles.flashcards}>
-        {editing
-          ? <FlashcardForm submit={this.handleAdd} onCancel={this.toggleAdd}/>
-          : <Fragment>
-            <button onClick={this.toggleAdd}>Add a flashcard</button>
-          </Fragment>
-        }
-        {flashcards &&
-            <Fragment>
-              {flashcards.map(flashcard => 
-                <FlashcardDisplay
-                  flashcard={flashcard}
-                  key={flashcard._id}    
-                />)}
-            </Fragment>
-        }
-      </div>
+      <Fragment>
+        <div className={styles.flashcards}>
+          {editing
+            ? <FlashcardForm submit={this.handleAdd} onCancel={this.toggleAdd}/>
+            : <button onClick={this.toggleAdd}>Add a flashcard</button>
+          }
+          {flashcards &&
+              <ul>
+                {flashcards.map(flashcard => 
+                  <FlashcardDisplay
+                    flashcard={flashcard}
+                    key={flashcard._id}    
+                  />)}
+              </ul>
+          }
+        </div>
+      </Fragment>
     );
   }
 }

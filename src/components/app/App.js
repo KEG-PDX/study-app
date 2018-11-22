@@ -10,7 +10,6 @@ import Sidebar from './Sidebar';
 import Auth from '../auth/Auth';
 import PrivateRoute from '../shared/PrivateRoute';
 import Dashboard from '../dashboard/Dashboard';
-import Search from '../dashboard/Search';
 class App extends Component {
   static propTypes = {
     tryLoadUser: PropTypes.func.isRequired,
@@ -32,7 +31,7 @@ class App extends Component {
             <main>
               <Switch>
                 <PrivateRoute exact path="/" component={Dashboard}/>
-                <PrivateRoute exact path="/search" component={Search}/>
+                <PrivateRoute exact path="/search" component={Dashboard}/>
                 <Route path="/auth" component={Auth}/>
                 <Redirect to="/"/>
               </Switch>

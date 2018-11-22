@@ -1,22 +1,43 @@
 :local(.flashcardDisplay) {
-  background-color: rgb(238, 238, 238);
-  width: 80vw;
-  margin-left: 5px;
-  margin-top: 10px;
-  min-height: 100px;
-  padding: 3px;
+
+  height: 275px;
   
-  .flashcardData {
-    display: flex;
-    flex-flow: column nowrap;
-    align-content: right;
-    width: 90%;
-    height: auto;
+  .flashcardDetail {
+    background-color: rgb(208, 208, 208);
+    height: 260px;
+    overflow-wrap: break-word;
   }
 
-  img {
+  .question {
+    padding: 20px 0px 0px 5px;
+  }
+
+  .answer {
+    padding: 40px 0px 0px 5px;
+  }
+
+  .flip-button-front {
+    align-self: auto;
     position: absolute;
-    margin-left: 75%;
+    top: 5px;
+    left: 5px;
+    width: 60px;
+    cursor: pointer;
+  }
+  
+  .flip-button-back {
+    align-self: auto;
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    width: 60px;
+    cursor: pointer;
+  }
+  
+  #close-button {
+    position: absolute;
+    right: 8px;
+    top: 8px;
     width: 20px;
     height: 20px;
     cursor: pointer;

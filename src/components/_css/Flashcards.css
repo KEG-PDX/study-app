@@ -1,6 +1,13 @@
 :local(.flashcards) {
   display: flex;
-  flex-flow: column nowrap;
-  margin-left: 10px;
-  margin-bottom: 60px;
+  flex-flow: column wrap;
+  width: 83vw;
+  
+  ul {
+    padding: 0px 0px 0px 0px;
+    margin: 0px 0px 70px 0px;
+  }
+
+  // margin-bottom: 60px;
+  // width: 83%;
 }

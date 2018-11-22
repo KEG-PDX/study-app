@@ -54,18 +54,20 @@ export default class FlashcardForm extends Component {
             value={category}
             onChange={this.handleCategoryChange}
             options={categories}
+            isRequired
           />
           <Select
             name="subCategory"
             value={subCategory}
             onChange={this.handleSubCategoryChange}
             options={filteredOptions}
+            isRequired
           />
           <FormControl label="Question">
-            <input name="question" value={question} onChange={this.handleChange}/>
+            <input name="question" maxLength="420" value={question} onChange={this.handleChange} required/>
           </FormControl>
           <FormControl label="Answer">
-            <input name="answer" value={answer} onChange={this.handleChange}/>
+            <input name="answer" maxLength="420" value={answer} onChange={this.handleChange} required/>
           </FormControl>
 
           <button>Add</button>
