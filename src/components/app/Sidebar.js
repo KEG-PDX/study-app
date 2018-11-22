@@ -25,7 +25,7 @@ class Sidebar extends Component {
           <nav className="main-menu">
             <ul>
               <li className="has-subnav">
-                <Link to="/me">
+                <Link to="/">
                   <i className="fas fa-book fa-2x"></i>
                   <span className="nav-text">
                     Dashboard
@@ -35,7 +35,7 @@ class Sidebar extends Component {
               {user &&
             <Fragment>
               <li className="has-subnav">
-                <Link to="/">
+                <Link to="/search">
                   <i className="fas fa-search fa-2x"></i>
                   <span className="nav-text">
                       Search

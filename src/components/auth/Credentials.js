@@ -1,6 +1,9 @@
 import React, { Component, Fragment } from 'react';
 import PropTypes from 'prop-types';
 import FormControl from '../shared/FormControl';
+import login from '../../assets/login.png';
+import signUp from '../../assets/sign-up.png';
+import styles from '../_css/Credentials.css';
 
 class Credentials extends Component {
 
@@ -32,7 +35,7 @@ class Credentials extends Component {
     const { name, email, password } = this.state;
 
     return (
-      <form onSubmit={this.handleSubmit}>
+      <form onSubmit={this.handleSubmit} className={styles.credentials}>
         {action === 'Sign Up' &&  
         <Fragment>
           <div>
@@ -40,22 +43,30 @@ class Credentials extends Component {
               <li>Step 1: Create an account.</li>
               <li>Step 2: Use Study Up to help you pass your exams, develop super human memorization, or save the world.</li>
             </ul>
-            <FormControl label="Name">
-              <input name="name" type="text" value={name} onChange={this.handleChange} required></input>
-            </FormControl>
+            <div className="loginInputs">
+              <FormControl label="Name">
+                <input name="name" type="text" value={name} onChange={this.handleChange} required></input>
+              </FormControl>
+            </div>
           </div>
         </Fragment>
         }
-
-        <FormControl label="Email">
-          <input name="email" type="email" value={email} onChange={this.handleChange} required></input>
-        </FormControl>
-        <FormControl label="Password">
-          <input name="password" type="password" value={password} onChange={this.handleChange} required></input>
-        </FormControl>
+        <div className="loginInputs">
+          <FormControl label="Email">
+            <input name="email" type="email" value={email} onChange={this.handleChange} required></input>
+          </FormControl>
+          <FormControl label="Password">
+            <input name="password" type="password" value={password} onChange={this.handleChange} required></input>
+          </FormControl>
+        </div>
 
         <FormControl>
-          <button>{action}</button>
+          <button>
+            {action === 'Sign Up'
+              ? <img src={signUp}></img>
+              : <img src={login}></img>
+            }
+          </button>
         </FormControl>
       </form>
     );

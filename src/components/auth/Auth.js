@@ -6,6 +6,10 @@ import { signin, signup } from './actions';
 import { getUser } from './reducers';
 import Credentials from './Credentials';
 import Error from '../shared/Error';
+import styles from '../_css/Auth.css';
+import arrowUp from '../../assets/arrow-up.png';
+import signUp from '../../assets/sign-up.png';
+import returnToLogin from '../../assets/left-arrow.png';
 class Auth extends Component {
   
   static propTypes = {
@@ -20,19 +24,20 @@ class Auth extends Component {
     if(user) return <Redirect to={redirect}/>;
 
     return (
-      <section>
+      <section className={styles.auth}>
         <Switch>
           <Route path="/auth/signin" render={() => (
-            <div>
+            <div className="landing">
               <h2>Study Up</h2>
+              <img src={arrowUp}></img>
               <Error/>
               <Credentials action="Login" submit={signin}/>
-              <Link to="/auth/signup"><button>Sign Up</button></Link>
+              <Link to="/auth/signup"><button><img src={signUp}></img></button></Link>
             </div>
           )}/>
           <Route path="/auth/signup" render={() => (
             <div>
-              <p>&lt;&#61;&#61; <Link to="/auth/signin">Login</Link></p>
+              <Link to="/auth/signin"><img id="returnToLogin" src={returnToLogin}/></Link>
               <Credentials action="Sign Up" submit={signup}/>
             </div>
           )}/>

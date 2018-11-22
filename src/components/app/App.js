@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
 import { BrowserRouter as Router, Switch, Route, Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
@@ -10,6 +10,7 @@ import Sidebar from './Sidebar';
 import Auth from '../auth/Auth';
 import PrivateRoute from '../shared/PrivateRoute';
 import Dashboard from '../dashboard/Dashboard';
+import Search from '../dashboard/Search';
 class App extends Component {
   static propTypes = {
     tryLoadUser: PropTypes.func.isRequired,
@@ -26,20 +27,25 @@ class App extends Component {
     return (
       <Router>
         <div className={styles.app}>
-          <Sidebar/>
           {checkedAuth &&
-          <main>
-            <Switch>
-              <PrivateRoute exact path="/" component={Dashboard}/>
-              <Route path="/auth" component={Auth}/>
-              <Redirect to="/"/>
-            </Switch>
-          </main>
+          <Fragment>
+            <main>
+              <Switch>
+                <PrivateRoute exact path="/" component={Dashboard}/>
+                <PrivateRoute exact path="/search" component={Search}/>
+                <Route path="/auth" component={Auth}/>
+                <Redirect to="/"/>
+              </Switch>
+            </main>
+          </Fragment>
           }
           {user &&
+          <Fragment>
+            <Sidebar/>
             <footer className={styles.footer}>
-              Study Up
+                Study Up
             </footer>
+          </Fragment>
           }
         </div>
       </Router>

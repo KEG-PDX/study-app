@@ -13,7 +13,6 @@ class Flashcard extends Component {
   handleDelete = () => {
     const { removeFlashcard, flashcard } = this.props;
     flashcard.deleted = true;
-    console.log('FLASHCARD', flashcard);
     removeFlashcard(flashcard);
   };
 
