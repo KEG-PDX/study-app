@@ -1,0 +1,33 @@
+:local(.auth){
+    @import url('https://fonts.googleapis.com/css?family=Pacifico');
+    
+    .landing {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-flow: column nowrap;
+    }
+
+    form {
+        width: 100%;
+        margin-top: 10%;
+    }
+
+    input {
+        border: 1px solid black;
+        width: 230px;
+        margin: 15px 0px 15px 0px;
+    }
+    
+    h2 {
+        font-family: 'Pacifico', cursive;
+        font-size: 3.5em;
+        text-align: center;
+        margin-top: 40px;
+    }
+
+    #returnToLogin {
+        width: 30px;
+        margin: 20px 0px 0px 5px;
+    }
+}

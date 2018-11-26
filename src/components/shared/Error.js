@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { getError } from './reducers';
-import { clearError } from './actions';
+import { getError } from '../app/reducers';
+import { clearError } from '../app/actions';
 
 class Error extends Component {
   

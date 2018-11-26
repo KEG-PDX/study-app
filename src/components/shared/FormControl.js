@@ -13,7 +13,7 @@ class FormControl extends Component {
     return (
       <div>
         {label && <label>{label}:</label>}
-        <div className="control">
+        <div>
           {children}
         </div>
       </div>
